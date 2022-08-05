@@ -1,54 +1,55 @@
-let arr = ['red', 'green', 'yellow']
-let element1 = document.getElementById('test_id1')
+//task 1
+let elements = document.querySelectorAll('a')
+let arr = [elements]
 
-let selectedColorIndex = 0;
+let links = document.getElementsByTagName("a");
 
- let changeColor = () => {
-    if (selectedColorIndex < arr.length-1){
-        selectedColorIndex++
-    }else{
-        selectedColorIndex =  0
-    }
-
-   element1.style.backgroundColor = arr[selectedColorIndex];
-  
+let paintLink = (arr) => {
+        for (let i = 0; i < arr.length; i++) {
+                if (i % 2 !== 0) {
+                        arr[i].style.color = 'red'
+                }
+        }
 }
- setInterval(changeColor, 2000)
-changeColor()
 
-let element2 = document.getElementById('test_id2')
+paintLink(links);
 
-let selectedColorIndex1 = 1;
+//task 2
 
- let changeColor1 = () => {
-    if (selectedColorIndex1 < arr.length-1){
-        selectedColorIndex1++
-    }else{
-        selectedColorIndex1 =  0
-    }
-
-   element2.style.backgroundColor = arr[selectedColorIndex1];
-  
+let pushHref = (arr) => {
+        let arr1 = [];
+        for (let i = 0; i < arr.length; i++) {
+                arr1.push(arr[i].getAttribute('href'))
+        }
+        console.log(arr1)
 }
- setInterval(changeColor1, 2000)
-changeColor1()
+pushHref(links)
 
-let element3 = document.getElementById('test_id3')
 
-let selectedColorIndex2 = 2;
+//task 3
+let element = document.querySelector('#block1')
+element.setAttribute('test_attribute', 'block1_value')
+console.log(element)
 
- let changeColor2 = () => {
-    if (selectedColorIndex2 < arr.length-1){
-        selectedColorIndex2++
-    }else{
-        selectedColorIndex2 =  0
-    }
+//task 4
+let link = document.querySelector('#block2')
+link.setAttribute('target', 'blank')
+console.log(link)
 
-   element3.style.backgroundColor = arr[selectedColorIndex2];
-  
+//task 5
+let deleteAttribute = (arr) => {
+        for (let i = 0; i < arr.length; i++) {
+                if (i % 2 !== 0) {
+                        arr[i].removeAttribute('href')
+                }
+                console.log(arr[i]);
+        }
+
 }
- setInterval(changeColor2, 2000)
-changeColor2()
+
+deleteAttribute(links);
+
+
 
 
 

@@ -1,56 +1,69 @@
-//task 1
-let elements = document.querySelectorAll('a')
-let arr = [elements]
+//task 1 Հետեւյալ օբյեկտից նկարել ծառ html-ում, և ծառի ամեն ճյուղը ներկել կարմիր։
 
-let links = document.getElementsByTagName("a");
+let data = {
+        "Рыбы": {
+                "форель": {},
+                "лосось": {}
+        },
 
-let paintLink = (arr) => {
-        for (let i = 0; i < arr.length; i++) {
-                if (i % 2 !== 0) {
-                        arr[i].style.color = 'red'
+        "Деревья": {
+                "Огромные": {
+                        "секвойя": {},
+                        "дуб": {}
+                },
+                "Цветковые": {
+                        "яблоня": {},
+                        "магнолия": {}
                 }
         }
-}
-
-paintLink(links);
-
-//task 2
-
-let pushHref = (arr) => {
-        let arr1 = [];
-        for (let i = 0; i < arr.length; i++) {
-                arr1.push(arr[i].getAttribute('href'))
-        }
-        console.log(arr1)
-}
-pushHref(links)
+};
 
 
-//task 3
-let element = document.querySelector('#block1')
-element.setAttribute('test_attribute', 'block1_value')
-console.log(element)
+let crateData = data => {
+        let tree = document.createElement('ul');
+        for (let key in data) {
+                let list = document.createElement('li');
+                list.innerText = key;
 
-//task 4
-let link = document.querySelector('#block2')
-link.setAttribute('target', 'blank')
-console.log(link)
 
-//task 5
-let deleteAttribute = (arr) => {
-        for (let i = 0; i < arr.length; i++) {
-                if (i % 2 !== 0) {
-                        arr[i].removeAttribute('href')
+                let valueObj = crateData(data[key]);
+                if (valueObj) {
+                        list.append(valueObj);
+                        valueObj.style.color = 'red'
                 }
-                console.log(arr[i]);
+
+                tree.append(list);
         }
 
+        return tree;
 }
 
-deleteAttribute(links);
 
+let func = (dataBase, data) => {
+        dataBase.append(crateData(data));
+}
+let dataBase = document.getElementById('dataBase');
+func(dataBase, data);
 
+//task 2 Գրել ֆունկցիա, որը նման մասիվից html-ում կավելացնի էլեմենտներ։
 
+let elements = [
+        { element: 'p', content: 'test text', id: 1 },
+        { element: 'div', class: 'block', id: 2 },
+        { element: 'input', value: 'test'}
+]
 
+let func1 = elements => {
+        elements.forEach((item) => {
 
+                let array = document.createElement(item.element)
+                for (let key in item) {
+                        array.setAttribute(key, item[key])
+
+                }
+                document.getElementById('divId').append(array)
+
+        })
+}
+func1(elements)
 

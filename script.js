@@ -1,60 +1,34 @@
-//1.js-ում ստանալ հղումները և ամեն երկրորդի գույնը դարձել կարմիր։
+//2 
+function operator() {
+    let firstNumber = Number(document.getElementById('firstNumber').value);
+    let secondNumber = Number(document.getElementById('secondNumber').value);
+    let operator = document.getElementById('operator').value;
+    let res;
 
-let a = document.getElementsByTagName('a');
+    switch (operator) {
+        case '+':
+            res = firstNumber + secondNumber;
+            console.log(res);
+            break;
+        case '-':
+            res = firstNumber - secondNumber;
+            break;
+        case '*':
+            res = firstNumber * secondNumber;
+            break;
+        case '/':
+            res = firstNumber / secondNumber;
+            break;
+        case '%':
+            res = firstNumber % secondNumber;
+            console.log(res);
+            break;
+        default:
+            console.log("Error");
 
-let func = (aTag) => {
-
-    for (let i = 0; i <= aTag.length; i++) {
-        if (i % 2 !== 0) {
-            aTag[i].style.color = 'red'
-         
-        }
     }
+    let p = document.createElement('p')
+    p.innerHTML = ` ${firstNumber} ${operator} ${secondNumber} = ${res}`
+    container.append(p)
+
 }
-
-func(a)
- 
-// 2.հղումներից ստանալ href-ները և լցնել մասիվի մեջ։  (մասիվը տպել):
-let getHref= (a)=>{
-    let arr=[];
-    for(let i=0;i<a.length;i++){
-
-        arr.push(a[i].getAttribute('href'))
-    }
-    console.log(arr);
-}
-getHref(a)
-
-// 3. հղումներին ավելացնել ոչ ստանդարտ attribute։ Օրինակ test attribute, ինչ-որ value-ով։b
-
-let setHref= (a)=>{
-    for(let i=0;i<a.length;i++){
-       a[i].setAttribute('test','hello')
-    }
-}
-setHref(a)
-
-//4.հղումներին ավելացնել ստանդարտ target attribute _blank value-ով։
-
-
-let setTArgetHref= (a)=>{
-    for(let i=0;i<a.length;i++){
-       a[i].setAttribute('taregt','_blank')
-    }
-}
- setTArgetHref(a)
-
-//5.ջնջել href attribute-ը ամեն երկրորդ հղումից։
-
-
-let removeAtrr = (aTag) => {
-
-    for (let i = 0; i <= aTag.length; i++) {
-        if (i % 2 !== 0) {
-            aTag[i].removeAttribute('href')
-         
-        }
-    }
-}
-
-removeAtrr(a)

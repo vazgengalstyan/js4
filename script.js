@@ -14,7 +14,7 @@ let count = () => {
 	}else if(operator === '/'){
 	result = (Number(number1) / Number(number2))
 	}else{
-		alert('Please try again');
+		alert('Try again');
 	}
 	
 	alert(result)

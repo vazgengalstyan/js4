@@ -1,0 +1,12 @@
+#block{
+        width: 150px;
+        height: 100px;
+        border: 1px solid black;
+        position: absolute;
+        left:0;
+        top: 0
+    }
+
+input{
+        margin: 20px;
+    }

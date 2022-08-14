@@ -1,22 +1,42 @@
-// task 1
-let count = () => {
+//task 5 Էկրանի ցանկացած տեղի վրա քլիք անելիս, էլեմենտը պետք է հայտնվի այնտեղ 
+field.onclick = function (event) {
+	let cordinate = this.getBoundingClientRect()
 
-	let operator = id_2.value;
-	let number1 = id_1.value;
-	let number2 = id_3.value;
-		let result;
-	if(operator === '+'){
-		result = (Number(number1) + Number(number2))
-	}else if(operator === '-'){
-	   result = (Number(number1) - Number(number2))
-	}else if(operator === '*'){
-	result = (Number(number1) * Number(number2))
-	}else if(operator === '/'){
-	result = (Number(number1) / Number(number2))
-	}else{
-		alert('Try again');
+	let elemCordinate = {
+		top: event.clientY - cordinate.top - field.clientTop - element.clientHeight,
+		left: event.clientX - cordinate.left - field.clientLeft - element.clientWidth 
+	};
+
+	if (elemCordinate.top < 0){
+		elemCordinate.top = 0;
 	}
-	
-	alert(result)
+
+
+	if (elemCordinate.left < 0){
+		elemCordinate.left = 0;
+	}
+
+
+	if (elemCordinate.left + element.clientWidth > field.clientWidth) {
+		elemCordinate.left = field.clientWidth - element.clientWidth;
+	}
+
+
+	if (elemCordinate.top + element.clientHeight > field.clientHeight) {
+		elemCordinate.top = field.clientHeight - element.clientHeight;
+	}
+
+	element.style.left = elemCordinate.left + 'px';
+	element.style.top = elemCordinate.top + 'px';
+}
+
+
+
+//task 3 Էլեմենտի վրա սեղմելիս պետք է ստանա ռանդոմ գույն
+form.onclick = function(event) {
+	let changeColor = ()=>{
+		form.style.backgroundColor = `#${Math.floor(Math.random() * 1000).toString(16)}`;
+	    }
+	    changeColor();
 }
 

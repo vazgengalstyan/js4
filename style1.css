@@ -1,13 +1,29 @@
-input{
-        margin:20px
-    }
-    button{
-        margin:20px;
-        width: 100px;
-    }
-   
+#form {
+    background-color: green;
+    width: 500px;
+    height: 500px;
+    cursor: pointer;
+  }
 
+  #field {
+    width: 1500px;
+    height: 700px;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
 
+#element {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 10px solid purple;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    transition: all 1s;
+  }
 
 
     

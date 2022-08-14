@@ -1,9 +1,13 @@
 #dvd{
     width: 150px;
     height: 150px;
-    border: 1px solid black;
-    background-color: aquamarine;
+    border: 3px solid black;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: #16c88c;
     position: absolute;
+    border-radius: 100px;
 }
 #section{
     position: relative;
